@@ -1,14 +1,24 @@
+<<<<<<< HEAD
 <!-- Behzad Ghabaei
 CS 85 - PHP
 Cosmic Calendar
 Instructor Seno
 6/25/2026
 -->
+=======
+<!--Behzad Ghabaei
+CS 85 PHP
+Module 2B
+Insructor Seno
+6/25/2026-->
+
+>>>>>>> 2e1bdbc (The calender also diplays user input for the loop to operate.)
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Cosmic Calendar</title>
+    <!-- All styling for the final output page is included below -->
     <style>
         body { font-family: sans-serif; background-color: #1a202c; color: #e2e8f0; }
         .container { max-width: 800px; margin: 2rem auto; padding: 2rem; background-color: #2d3748; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
@@ -21,6 +31,7 @@ Instructor Seno
     </style>
 </head>
 <body>
+<<<<<<< HEAD
 <div class="container">
     <h1>Cosmic Calendar</h1>
     <div class="calendar-grid">
@@ -32,30 +43,37 @@ $firstName = "Behzad"; // <-- Replace this with your actual first name
 // one name character listed 1 - 176.
 // 2. Define the URL
 $apiUrl = 'https://timeapi.io';
+=======
+    <div class="container">
+        <h1>Cosmic Calendar</h1>
+        <div class="calendar-grid">
+      <?php      
+                // --- YOUR ENTIRE PHP SCRIPT GOES HERE ---
+                
 
-// 3. Fail-safe data fetching
-// We use @ to suppress raw warning notices and handle them cleanly ourselves
-$jsonString = @file_get_contents($apiUrl);
-$data = json_decode($jsonString);
+    // Fetch the raw JSON string from the URL
+    $jsonString = file_get_contents('https://timeapi.io/api/time/current/zone?timeZone=America%2FLos_Angeles');
+>>>>>>> 2e1bdbc (The calender also diplays user input for the loop to operate.)
 
-// 4. Fallback Logic: If the API fails or is blocked, use the local server clock
-if ($data && isset($data->dateTime) && isset($data->month)) {
-    // API worked perfectly!
+    // Decode the JSON string into a PHP object
+    $data = json_decode($jsonString);
+
+    // Extract the date data from the response and determine $dayOfYear
     $dateTimeString = $data->dateTime;
     $date = new DateTime($dateTimeString);
     $dayOfYear = (int)$date->format('z') + 1;
-    $month = (int)$data->month;
-} else {
-    // API failed or network blocked it. Fallback to local server time automatically!
-    $date = new DateTime("now", new DateTimeZone("America/Los_Angeles"));
-    $dayOfYear = (int)$date->format('z') + 1;
-    $month = (int)$date->format('n'); // 'n' gives month number without leading zeros (1-12)
-}
+    $month = $data->month;
+    $firstName = "Behzad";
+    $nameLength = strlen($firstName);
 
-// 5. Define your loop range variables
-$nameLength = strlen($firstName);
+echo "My Name is: " . $firstName;
+echo "<br / >"; 
+echo "Today is day number: " . $dayOfYear; 
+echo "<br / >"; 
+echo "The current month is: " . $month;  
+echo "<br / >"; 
+echo "The name length is: " . $nameLength;
 
-// 6. Build the loop (from name length to current day of the year)
 for ($i = $nameLength; $i <= $dayOfYear; $i++) {
     
     // Default base style for every box
@@ -76,6 +94,7 @@ for ($i = $nameLength; $i <= $dayOfYear; $i++) {
     // 8. Output the generated calendar box HTML
     echo "<div class='$cssClass'>$i</div>";
 }
+<<<<<<< HEAD
 /*
 DEBUGGING LOG:
 Problem: At first crashing occured with the provided website. 
@@ -109,7 +128,27 @@ Compares each step of the loop against your alignment conditions, grouping ident
 conditions together to handle the .cosmic-both class transition
 */ 
 ?>
+=======
+/*  
+DEBUGGING LOG:  
+By looking at the style code we see that a day-box is a grey color.  A cosmic-name is a purple box.
+cosmic-month is a grey box with a purple border and cosmic-both is an orage box.
+The for loop begins with variable i, which iterates until i is less than or equal to the day of year.
+The day of year is acquired from the API.  The if / elseif condition checks with the === operator.
+In PHP, === represents the Identical operator, which evaluates whether two values are strictly equal in both value and data type.
+It returns true only if both sides match perfectly without altering the variables during the check. 
+== (Equal / Loose Equality): Converts the variables to a common type (called "type juggling" or coercion) before comparing them.
+=== (Identical / Strict Equality): Skips type conversion entirely. If the data types are different, it immediately returns false.
+As i increments, f it is divisible by the namelength and divisible by the current month both, the cosmic box will be orange.
+If i is divisible by namelength only, the box will be purple. 
+If i is divisible by the month only it will be grey with an orange border.  This lab effectively 
+demonstarted php's ability to use modulo in conditional statements and echo results. 
+PHP generates HTML for you, but the browser never see's PHP.
+1. browser requests page. 2.  server runs php code. 3.  server sends html to browser.  4. browser reads html.
+*/
+            ?>
+        </div>
+>>>>>>> 2e1bdbc (The calender also diplays user input for the loop to operate.)
     </div>
-</div>
 </body>
 </html>
