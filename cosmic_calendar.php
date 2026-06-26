@@ -75,16 +75,22 @@ for ($i = $nameLength; $i <= $dayOfYear; $i++) {
 }
 
 /*  
-DEBUGGING LOG:  
-By looking at the style code we see that a day-box is a grey color.  A cosmic-name is a purple box.
-cosmic-month is a grey box with a purple border and cosmic-both is an orage box.
+DEBUGGING LOG:
+A problem faced was with the git commands which added syntax errors when pushing the revised code to github.
+Also my VSCode was altered when pushing the revision.  In order to push I had to pull first with
+"git push -u origin main" and also I had to use "git rebase --continue". This caused concern about the syntax.
+Other problems faced were, how to create a box with a color.  In the final echo statement $cssClass
+chooses what color the box will become, from the if /elseif block statements.  My next problem was to find out how
+cosmic-month, cosmic-name, or cosmic-both should be used. The concatanation operator (.) and the incrementing
+variable $i allowed this to work.  By looking at the style code we see that a day-box is a grey color.  A cosmic-name is a purple box.
+cosmic-month is a grey box with an orange border and cosmic-both is an orange box.
 The for loop begins with variable i, which iterates until i is less than or equal to the day of year.
 The day of year is acquired from the API.  The if / elseif condition checks with the === operator.
-In PHP, === represents the Identical operator, which evaluates whether two values are strictly equal in both value and data type.
-It returns true only if both sides match perfectly without altering the variables during the check. 
+In PHP, === represents the Identical operator, which evaluates whether two values are strictly equal in
+both value and data type.  It returns true only if both sides match perfectly without altering the variables during the check. 
 == (Equal / Loose Equality): Converts the variables to a common type (called "type juggling" or coercion) before comparing them.
 === (Identical / Strict Equality): Skips type conversion entirely. If the data types are different, it immediately returns false.
-As i increments, f it is divisible by the namelength and divisible by the current month both, the cosmic box will be orange.
+As i increments, if it is divisible by the namelength and divisible by the current month both, the cosmic box will be orange.
 If i is divisible by namelength only, the box will be purple. 
 If i is divisible by the month only it will be grey with an orange border.  This lab effectively 
 demonstarted php's ability to use modulo in conditional statements and echo results. 
