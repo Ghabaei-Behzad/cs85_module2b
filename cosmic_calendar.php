@@ -1,3 +1,9 @@
+<!-- Behzad Ghabaei
+CS 85 - PHP
+Cosmic Calendar
+Instructor Seno
+6/25/2026
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +28,8 @@
         // --- YOUR PHP SCRIPT GOES HERE ---
        // 1. Set up your name
 $firstName = "Behzad"; // <-- Replace this with your actual first name
-
+// Changing the number of characters will affect the cosmic calender.
+// one name character listed 1 - 176.
 // 2. Define the URL
 $apiUrl = 'https://timeapi.io';
 
