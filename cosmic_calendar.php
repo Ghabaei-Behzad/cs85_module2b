@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-<!-- Behzad Ghabaei
-CS 85 - PHP
-Cosmic Calendar
-Instructor Seno
-6/25/2026
--->
-=======
 <!--Behzad Ghabaei
 CS 85 PHP
 Module 2B
 Insructor Seno
 6/25/2026-->
 
->>>>>>> 2e1bdbc (The calender also diplays user input for the loop to operate.)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,29 +22,17 @@ Insructor Seno
     </style>
 </head>
 <body>
-<<<<<<< HEAD
+
 <div class="container">
     <h1>Cosmic Calendar</h1>
     <div class="calendar-grid">
         <?php
-        // --- YOUR PHP SCRIPT GOES HERE ---
-       // 1. Set up your name
-$firstName = "Behzad"; // <-- Replace this with your actual first name
-// Changing the number of characters will affect the cosmic calender.
-// one name character listed 1 - 176.
-// 2. Define the URL
-$apiUrl = 'https://timeapi.io';
-=======
-    <div class="container">
-        <h1>Cosmic Calendar</h1>
-        <div class="calendar-grid">
-      <?php      
+     
                 // --- YOUR ENTIRE PHP SCRIPT GOES HERE ---
                 
 
     // Fetch the raw JSON string from the URL
     $jsonString = file_get_contents('https://timeapi.io/api/time/current/zone?timeZone=America%2FLos_Angeles');
->>>>>>> 2e1bdbc (The calender also diplays user input for the loop to operate.)
 
     // Decode the JSON string into a PHP object
     $data = json_decode($jsonString);
@@ -94,41 +73,7 @@ for ($i = $nameLength; $i <= $dayOfYear; $i++) {
     // 8. Output the generated calendar box HTML
     echo "<div class='$cssClass'>$i</div>";
 }
-<<<<<<< HEAD
-/*
-DEBUGGING LOG:
-Problem: At first crashing occured with the provided website. 
-The @ symbol tells PHP not to print ugly error messages directly
-onto my webpage if blocked. timeapi.io 
-(https://community.fabric.microsoft.com/t5/Power-Query/worldtimeapi-refresh-failing/td-p/3346758)
-Problem: The if / else condition checks if the API returned valid data.
-If it did not, it instantly drops into the fallback block to calculate
-$dayOfYear and $month directly through PHP's built-in DateTime() engine.
-(grid of boxes successfully displays!)
-website at: http://cs85_projects.test/module2b/cosmic_calendar.php
-The CSS classes are appended using .= " cosmic-style" 
-(with a leading space) to preserve the structural baseline properties of .day-box.
-The modulo operator (%) checks for a remainder of 0 to determine perfectly divisible calendar days.
-The cosmic-both check is positioned first in the if tree to prevent single-match rules from
-accidentally overriding a dual-match day.
-API Connection: The script reads the raw payload from timeapi.io using file_get_contents.
-json_decode converts the JSON string into a standard PHP object ($data).
-PHP's format('z') returns a 0-indexed day (0-365). Adding 1 correctly shifts it to a
-standard 1-indexed calendar day (1-366).
-The API natively returns the numerical month value.
-It generates a grid of 31 day boxes for the current month.
-It calculates the unique daily cosmic alignments based on your previous
-day-of-the-year math, and automatically applies your CSS classes
-(.cosmic-name, .cosmic-month, and .cosmic-both) to the matching day.
-API Fallback Added: Included an @file_get_contents check. If the API drops,
-the calendar defaults to your server's system time so the website never displays an empty layout error.
-Uses PHP's native format('t') function. The script auto-detects if the grid needs 28, 29, 30, or 31
-boxes based on the current calendar month.
-Compares each step of the loop against your alignment conditions, grouping identical
-conditions together to handle the .cosmic-both class transition
-*/ 
-?>
-=======
+
 /*  
 DEBUGGING LOG:  
 By looking at the style code we see that a day-box is a grey color.  A cosmic-name is a purple box.
@@ -148,7 +93,7 @@ PHP generates HTML for you, but the browser never see's PHP.
 */
             ?>
         </div>
->>>>>>> 2e1bdbc (The calender also diplays user input for the loop to operate.)
+
     </div>
 </body>
 </html>
