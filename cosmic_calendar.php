@@ -1,7 +1,7 @@
 <!--Behzad Ghabaei
 CS 85 PHP
 Module 2B
-Insructor Seno
+Instructor Seno
 6/25/2026-->
 
 <!DOCTYPE html>
